@@ -1,0 +1,54 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDB Movie",
+	"behavior": "create",
+	"noteContentFormat": "## Plot\n\n{{schema:description}}",
+	"properties": [
+		{
+			"name": "type",
+			"value": "movie",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
+			"name": "genre",
+			"value": "{{schema:genre|join:\\\", \\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "duration",
+			"value": "{{selector:[data-testid=\\\"title-techspec_runtime\\\"] span:last-of-type}}",
+			"type": "number"
+		},
+		{
+			"name": "status",
+			"value": "to-watch",
+			"type": "text"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "date-watched",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "cover",
+			"value": "{{image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/",
+		"schema:@Movie"
+	],
+	"noteNameFormat": "{{schema:name|replace:\":\":\" -\"}} ({{schema:datePublished|split:\"-\"|slice:0,1}})",
+	"path": "2 - Source Materials/Media"
+}

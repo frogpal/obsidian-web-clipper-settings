@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Goodreads",
+	"behavior": "create",
+	"noteContentFormat": "",
+	"properties": [
+		{
+			"name": "author",
+			"value": "{{author}}",
+			"type": "multitext"
+		},
+		{
+			"name": "year",
+			"value": "{{selector:[data-testid=\\\"publicationInfo\\\"]|split:\\\" \\\"|slice:-1}}",
+			"type": "number"
+		},
+		{
+			"name": "pages",
+			"value": "{{selector:[data-testid=\\\"pagesFormat\\\"]|split:\\\" \\\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
+			"name": "genre",
+			"value": "{{selector:[data-testid=\\\"genresList\\\"] a span|replace:\\\"/audiobook/i\\\":\\\"\\\"|slice:0,3}}",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "to-read",
+			"type": "text"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "read",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "cover",
+			"value": "{{meta:property:og:image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://www.goodreads.com/"
+	],
+	"noteNameFormat": "{{selector:h1[data-testid=\"bookTitle\"]|replace:\":\":\" -\"}}",
+	"path": "2 - Source Materials/Books"
+}

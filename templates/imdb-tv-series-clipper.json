@@ -1,0 +1,59 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDB TV Series",
+	"behavior": "create",
+	"noteContentFormat": "## Plot\n\n{{schema:description}}\n## Seasons Watched\n\n- [ ] Season 1\n- [ ] Season 2\n- [ ] Season 3",
+	"properties": [
+		{
+			"name": "type",
+			"value": "tv-series",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{schema:datePublished|split:\\\"-\\\"|slice:0,1}}",
+			"type": "number"
+		},
+		{
+			"name": "finale",
+			"value": "true",
+			"type": "checkbox"
+		},
+		{
+			"name": "seasons",
+			"value": "{{selector:label[for=\\\"browse-episodes-season\\\"]}}",
+			"type": "number"
+		},
+		{
+			"name": "genre",
+			"value": "{{schema:genre|join:\\\", \\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "status",
+			"value": "to-watch",
+			"type": "text"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "date-watched",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "cover",
+			"value": "{{image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/www\\.imdb\\.com\\/title\\/tt\\d+(?!\\/reference\\/)(\\/[^\\s]*)?$/",
+		"schema:@TVSeries"
+	],
+	"noteNameFormat": "{{schema:name|replace:\":\":\" -\"}} ({{schema:datePublished|split:\"-\"|slice:0,1}})",
+	"path": "2 - Source Materials/Media"
+}

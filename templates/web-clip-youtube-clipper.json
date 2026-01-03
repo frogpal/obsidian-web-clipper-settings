@@ -1,0 +1,33 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Web clip YouTube",
+	"behavior": "create",
+	"noteContentFormat": "{{highlights|map: item => item.text|join:\"\\n\\n\"}}",
+	"properties": [
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date|date:YYYY-MM-DD HH:mm}}",
+			"type": "datetime"
+		},
+		{
+			"name": "type",
+			"value": "video",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://www.youtube.com/"
+	],
+	"noteNameFormat": "{{title|replace:(\":\":\" -\",\"\\|\":\" - \")}}",
+	"path": "2 - Source Materials/Resources"
+}
