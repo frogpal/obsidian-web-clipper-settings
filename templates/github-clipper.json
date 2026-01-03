@@ -1,0 +1,33 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Github",
+	"behavior": "create",
+	"noteContentFormat": "{{selector:.Layout-sidebar p|first}}",
+	"properties": [
+		{
+			"name": "source",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "created",
+			"value": "{{date|date:YYYY-MM-DD HH:mm}}",
+			"type": "datetime"
+		},
+		{
+			"name": "type",
+			"value": "",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"https://github.com/"
+	],
+	"noteNameFormat": "{{url|split:\"/\"|slice:-2,-1}} - {{url|split:\"/\"|last}} ",
+	"path": "2 - Source Materials/Resources"
+}
