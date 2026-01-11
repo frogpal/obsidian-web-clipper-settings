@@ -1,0 +1,53 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Letterboxd",
+	"behavior": "create",
+	"noteContentFormat": "## Plot\n\n{{meta:name:description}}",
+	"properties": [
+		{
+			"name": "type",
+			"value": "movie",
+			"type": "text"
+		},
+		{
+			"name": "year",
+			"value": "{{schema:@Movie:releasedEvent[0].startDate}}",
+			"type": "number"
+		},
+		{
+			"name": "genre",
+			"value": "{{schema:@Movie:genre|join:\\\", \\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "duration",
+			"value": "{{selector:#tabbed-content+p}}",
+			"type": "number"
+		},
+		{
+			"name": "status",
+			"value": "to-watch",
+			"type": "text"
+		},
+		{
+			"name": "rating",
+			"value": "",
+			"type": "number"
+		},
+		{
+			"name": "date-watched",
+			"value": "",
+			"type": "date"
+		},
+		{
+			"name": "cover",
+			"value": "{{schema:@Movie:image}}",
+			"type": "text"
+		}
+	],
+	"triggers": [
+		"https://letterboxd.com/film/"
+	],
+	"noteNameFormat": "{{schema:@Movie:name}}",
+	"path": "2 - Source Materials/Media"
+}
