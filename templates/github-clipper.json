@@ -11,7 +11,7 @@
 		},
 		{
 			"name": "created",
-			"value": "{{date|date:YYYY-MM-DD HH:mm}}",
+			"value": "{{date|date:\\\"YYYY-MM-DD HH:mm\\\"}}",
 			"type": "datetime"
 		},
 		{
